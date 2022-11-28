@@ -7,6 +7,20 @@ yarn-error.log*
 firebase-debug.log*
 firebase-debug.*.log*
 
+
+#from lab3
+**/node_modules
+**/*~
+/build
+dist
+package-lock.json
+**/*solved*
+**/*Config.js*
+!telemetry.config.json
+/public/*.js
+/public/*.html
+
+
 # Firebase cache
 .firebase/
 
