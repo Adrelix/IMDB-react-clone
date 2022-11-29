@@ -27,6 +27,15 @@
 .App-link {
   color: #61dafb;
 }
+.searchResult{
+  text-align :center;
+  display: inline-block;
+  height: 100%;
+  width: 200px;
+  vertical-align: text-top;
+  margin: 0px;
+  padding: 40px;
+}
 
 @keyframes App-logo-spin {
   from {
