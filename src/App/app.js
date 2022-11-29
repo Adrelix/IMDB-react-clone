@@ -1,14 +1,16 @@
 import './app.css';
-
+import SearchbarPresenter from "../ReactRoot/searchbarPresenter";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+  /*<header className="App-header">
         <img src='https://raisingchildren.net.au/__data/assets/image/0035/49895/bee-movie.jpg' className="App-logo" alt="logo" />
         <p>
          I am dee bee
         </p>
-      </header>
+      </header>*/
+  return (
+    <div className="App">
+      <div><SearchbarPresenter/></div>
+
     </div>
   );
 }
