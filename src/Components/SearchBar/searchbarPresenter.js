@@ -1,9 +1,9 @@
-import SearchbarView from "../App/searchbarView"
-import SearchResultsView from "../App/searchResultView";
+import SearchbarView from "./searchbarView"
+import SearchResultsView from "../SearchResult/searchResultView";
 import React from "react";
-import resolvePromise from "../Utilities/resolvePromise";
-import promiseNoData from "../Utilities/promiseNoData";
-import {getMovieDetails} from "../dishSource";
+import resolvePromise from "../../Utilities/resolvePromise";
+import promiseNoData from "../../Utilities/promiseNoData";
+import {getMovieDetails} from "../../Utilities/dishSource";
 export default
 function Search(props){
     const [searchQuery, setSearchQuery] = React.useState();

@@ -1,4 +1,4 @@
-import App from "../Components/App/app";
+import App from "../App/app";
 
 export default function ReactRoot(){
       
