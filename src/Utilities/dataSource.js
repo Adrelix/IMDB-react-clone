@@ -1,9 +1,7 @@
 import {BASE_URL, API_KEY} from "./apiConfig.js";
 
 async function getMovieDetails(movieID){
-    console.log(movieID);
     function treatHTTPResponseACB(response){
-        /*TODO throw if the HTTP response is not 200, otherwise return response.json()*/
         if(response.status !== 200){
             throw "not found";
         }
@@ -12,12 +10,12 @@ async function getMovieDetails(movieID){
      const options = {
         method: 'GET'
     };
-    const endpoint = "/movie/" + movieID.toString() + "?api_key=" + API_KEY
+    const endpoint = "movie/" + movieID.toString() + "?api_key=" + API_KEY;
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB);
 }
 async function searchMovies(paramsObj){
+    console.log(paramsObj);
     function treatHTTPResponseACB(response){
-        /*TODO throw if the HTTP response is not 200, otherwise return response.json()*/
         if(response.status !== 200){
             throw "not found";
         }
@@ -37,7 +35,6 @@ async function searchMovies(paramsObj){
 
 async function searchPerson(paramsObj){
     function treatHTTPResponseACB(response){
-        /*TODO throw if the HTTP response is not 200, otherwise return response.json()*/
         if(response.status !== 200){
             throw "not found";
         }
@@ -55,4 +52,38 @@ async function searchPerson(paramsObj){
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
 
-export {searchMovies, getMovieDetails};
+async function getTopRated(){
+    function treatHTTPResponseACB(response){
+        if(response.status !== 200){
+            throw "not found";
+        }
+        return response.json();
+     }
+     function transformResultCB(response){
+        return response.results;
+     }
+     const options = {
+        method: 'GET'
+    };
+    const endpoint = "movie/top_rated?api_key=" + API_KEY;
+    return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
+}
+
+async function getPopular(){
+    function treatHTTPResponseACB(response){
+        if(response.status !== 200){
+            throw "not found";
+        }
+        return response.json();
+     }
+     function transformResultCB(response){
+        return response.results;
+     }
+     const options = {
+        method: 'GET'
+    };
+    const endpoint = "movie/popular?api_key=" + API_KEY;
+    return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
+}
+
+export {searchMovies, getMovieDetails, searchPerson, getTopRated, getPopular};
