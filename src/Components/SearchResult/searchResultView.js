@@ -12,7 +12,7 @@ function SearchResultsView(props){
           <img src={"https://image.tmdb.org/t/p/w500/"+searchResult.poster_path}  alt="hej" height="150"/><div >{searchResult.title}</div></span>
       
         }
-        return searchResults.results.map(searchResultCB)
+        return searchResults.map(searchResultCB)
       }
       
       export default SearchResultsView;
