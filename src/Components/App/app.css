@@ -37,6 +37,30 @@
   padding: 40px;
 }
 
+.mainPageResultWrapper{
+  display: flex;
+  flex-direction: column;
+  height: wrap;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.mainPageResult{
+  text-align :center;
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;  
+  height: 270px;
+  width:70vw;
+  vertical-align: text-top;
+  margin: 0px;
+  padding: 10px;
+  overflow-y:hidden;
+
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

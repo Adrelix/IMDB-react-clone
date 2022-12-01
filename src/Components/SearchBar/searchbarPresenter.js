@@ -22,6 +22,6 @@ function Search(props){
         resolvePromise(getMovieDetails({query:searchQuery}),promiseState,notifyACB)
     }
     return (<div><SearchbarView onTextSetQuery={textACB} onClickSearch={searchButtonClickACB}/>
-    {promiseNoData(promiseState) || <SearchResultsView searchResults={promiseState.data}/>}
+    {promiseNoData(promiseState) || <SearchResultsView searchResultClass="searchResult" searchResults={promiseState.data}/>}
     </div>);
 }
