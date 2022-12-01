@@ -3,7 +3,7 @@ import SearchResultsView from "../SearchResult/searchResultView";
 import React from "react";
 import resolvePromise from "../../Utilities/resolvePromise";
 import promiseNoData from "../../Utilities/promiseNoData";
-import {getMovieDetails} from "../../Utilities/dishSource";
+import {getMovieDetails} from "../../Utilities/dataSource";
 export default
 function Search(props){
     const [searchQuery, setSearchQuery] = React.useState();
