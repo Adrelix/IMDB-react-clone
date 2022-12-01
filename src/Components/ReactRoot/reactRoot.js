@@ -1,7 +1,6 @@
-import App from "../App/app";
+import App from "../Components/App/app";
 
 export default function ReactRoot(){
-    
-    
+      
     return <App/>
 }

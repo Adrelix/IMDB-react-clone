@@ -1,8 +1,8 @@
 import SearchbarView from "../App/searchbarView"
 import SearchResultsView from "../App/searchResultView";
 import React from "react";
-import resolvePromise from "../resolvePromise";
-import promiseNoData from "../App/promiseNoData";
+import resolvePromise from "../Utilities/resolvePromise";
+import promiseNoData from "../Utilities/promiseNoData";
 import {getMovieDetails} from "../dishSource";
 export default
 function Search(props){
