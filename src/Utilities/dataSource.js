@@ -86,4 +86,21 @@ async function getPopular(){
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
 
-export {searchMovies, getMovieDetails, searchPerson, getTopRated, getPopular};
+async function getTrending(){
+    function treatHTTPResponseACB(response){
+        if(response.status !== 200){
+            throw "not found";
+        }
+        return response.json();
+     }
+     function transformResultCB(response){
+        return response.results;
+     }
+     const options = {
+        method: 'GET'
+    };
+    const endpoint = "trending/all/week?api_key=" + API_KEY;
+    return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
+}
+
+export {searchMovies, getMovieDetails, searchPerson, getTopRated, getPopular, getTrending};
