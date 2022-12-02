@@ -4,6 +4,7 @@ import React from "react";
 import resolvePromise from "../../Utilities/resolvePromise";
 import promiseNoData from "../../Utilities/promiseNoData";
 import {searchMovies} from "../../Utilities/dataSource";
+import Show from "../../Utilities/show";
 export default
 function Search(props){
     const [searchQuery, setSearchQuery] = React.useState();
@@ -21,7 +22,7 @@ function Search(props){
     function searchButtonClickACB(){
         resolvePromise(searchMovies({query:searchQuery}),promiseState,notifyACB)
     }
-    return (<div><SearchbarView onTextSetQuery={textACB} onClickSearch={searchButtonClickACB}/>
-    {promiseNoData(promiseState) || <SearchResultsView searchResultClass="searchBarResult" searchResults={promiseState.data}/>}
+    return (<div><SearchbarView onTextSetQuery={textACB} onClickSearch={searchButtonClickACB}/><Show hash="#search">
+    {promiseNoData(promiseState) || <SearchResultsView searchResultClass="searchBarResult" searchResults={promiseState.data}/>}</Show>
     </div>);
 }

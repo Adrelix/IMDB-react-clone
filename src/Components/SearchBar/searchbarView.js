@@ -1,6 +1,7 @@
 function SearchbarView(props){
     function searchOnClickACB(){
       props.onClickSearch(); 
+      window.location.hash ="search"
       }
       function textACB(text){
         props.onTextSetQuery(text.target.value);
