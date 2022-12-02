@@ -5,17 +5,14 @@ import SearchbarPresenter from "../SearchBar/searchbarPresenter";
 import Sidebar from "../SideBar/sidebarPresenter";
 import TopMovies from '../SideBar/topp100MoviesPresenter';
 
-
-
 function App(props) {
   return (
     <div className="App">
       <div><Sidebar/></div>
-      <div><TopMovies/></div>
+      <Show hash="#Top100"><TopMovies/></Show>
       <div className="searchResult">
-
-        <div><SearchbarPresenter/></div>
-        <div><MainPagePresenter/></div>
+      <Show hash="#search"><SearchbarPresenter/></Show>
+      <Show hash="#mainContent"><MainPagePresenter/></Show>
       </div>
     </div>
   );

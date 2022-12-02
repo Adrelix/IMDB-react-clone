@@ -4,7 +4,6 @@ function SidebarView(props){
     }
     function goToTopMovies(){
         window.location.hash="#Top100";
-
     }
     return (
       <div class="sidebar">
@@ -13,13 +12,13 @@ function SidebarView(props){
             <ul>
                 <li onClick={goToTopMovies}>Top 100 Movies</li>
                 <li>Most Popular Movies</li>
-                <li>Latest Trailers</li>
+                <li>Browse by Genre</li>
             </ul>
             <h2 class="title">TV Shows</h2>
             <ul>
                 <li>Top 100 TV Shows</li>
                 <li>Most Popular TV Shows</li>
-                <li>Latest Trailers</li>
+                <li>Browse by Genre</li>
             </ul>
             <h2 class="title">Profile</h2>
             <ul>

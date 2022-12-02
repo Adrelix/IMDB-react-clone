@@ -4,13 +4,19 @@ import promiseNoData from "../../Utilities/promiseNoData";
 import {getTopRated} from "../../Utilities/dataSource";
 import TopMoviesView from "./top100MoviesView";
 
-
 export default
 function TopMovies(){
-    const [promiseState]= React.useState({});
+    const [promiseState]=  React.useState(function initialSearchACB(){return getTopRated()})
     const [, reRender]= React.useState(); 
-    console.log(promiseState);
-
+    React.useEffect( componentWasCreatedACB, [] ); 
+    
+    function componentWasCreatedACB(){  
+        resolvePromise(getTopRated(), promiseState, notifyACB)
+        function isTakenDownACB(){           
+            
+        }
+       return isTakenDownACB;    
+    }
     function notifyACB(){ reRender(new Object()); }
 
     if(!promiseState.promise){
