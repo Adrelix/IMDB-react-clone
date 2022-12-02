@@ -45,3 +45,35 @@
     transform: rotate(360deg);
   }
 }
+.sidebar {
+  width: 15%;
+  display: flex;
+  background-color: gray;
+  border-radius: 5px;
+}
+.sidebarText {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 0px 20px;
+}
+
+.title {
+  display:flex;
+  margin-bottom: 20px;
+}
+
+ul {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  list-style-image: url("../bee.png");
+  margin-top: -20px;
+}
+li:hover {
+  text-decoration:underline;
+}
+
+li {
+  margin: 10px 0px 0px 10px;
+  cursor: pointer;
+}
