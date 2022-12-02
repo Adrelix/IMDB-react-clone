@@ -8,7 +8,7 @@ function treatHTTPResponseACB(response){
  function transformResultCB(response){
     return response.results;
  }
- const options = {
+const options = {
     method: 'GET'
 };
 
