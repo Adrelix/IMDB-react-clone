@@ -7,7 +7,8 @@ function App() {
   return (
     <div class="App">
       <div><Sidebar/></div>
-      <div>
+      <div class="searchResult">
+        <Show hash="Top100"></Show>
         <div><SearchbarPresenter/></div>
         <div><MainPagePresenter/></div>
       </div>

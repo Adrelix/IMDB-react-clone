@@ -41,7 +41,7 @@
 }
 
 .mainPageResultWrapper{
-  flex: 1.5;
+  width: 80%;
   display: flex;
   display: inline;
   flex-direction: column;
