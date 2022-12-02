@@ -1,0 +1,1 @@
+window.location.hash !== "#search"? window.location.hash = "#mainContent": "";

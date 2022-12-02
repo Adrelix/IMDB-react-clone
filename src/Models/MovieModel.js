@@ -1,4 +1,5 @@
-import resolvePromise from "./resolvePromise"
+import { getMovieDetails } from "../Utilities/dataSource";
+import resolvePromise from "../Utilities/resolvePromise";
 class MovieModel{
     constructor(movieArray =[], currentMovie){
         this.observers = [];
@@ -42,7 +43,7 @@ class MovieModel{
           
         this.currentDish = id;
         this.notifyObservers({currentDish: id})
-        resolvePromise(getDishDetails(id),this.currentDishPromiseState, notifyACB.bind(this))
+        resolvePromise(getMovieDetails(id),this.currentDishPromiseState, notifyACB.bind(this))
     }
 }
-export default DinnerModel;
+export default MovieModel;
