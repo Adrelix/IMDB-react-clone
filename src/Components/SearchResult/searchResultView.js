@@ -8,7 +8,7 @@ function SearchResultsView(props){
             customClickEvent(searchResult)*/
             console.log("image clicked");
           }
-          return <span class= "searchResult" onClick={searchResultsClickACB}>
+          return <span key={searchResult.id} class= "searchResult" onClick={searchResultsClickACB}>
           <img src={"https://image.tmdb.org/t/p/w500/"+searchResult.poster_path}  alt="hej" height="150"/><div >{searchResult.title}</div></span>
       
         }
