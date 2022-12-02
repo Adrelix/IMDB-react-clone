@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  display: flex;
 }
 
 .App-logo {
@@ -28,6 +29,7 @@
   color: #61dafb;
 }
 .searchResult{
+  flex: 1.5;
   text-align :center;
   display: inline-block;
   height: 100%;
@@ -35,10 +37,13 @@
   vertical-align: text-top;
   margin: 0px;
   padding: 40px;
+  flex: 2;
 }
 
 .mainPageResultWrapper{
+  flex: 1.5;
   display: flex;
+  display: inline;
   flex-direction: column;
   height: wrap;
   align-items: center;
@@ -47,6 +52,7 @@
 }
 
 .mainPageResult{
+  flex: 1.5;
   text-align :center;
   display: flex;
   flex-direction: row;
@@ -73,7 +79,9 @@
   }
 }
 .sidebar {
-  width: 15%;
+  width: 250px;
+  margin-top: 50px;
+  flex-direction: column;
   display: flex;
   background-color: gray;
   border-radius: 5px;
@@ -101,6 +109,11 @@ li:hover {
 }
 
 li {
-  margin: 10px 0px 0px 10px;
+  margin: 10px 0px 0px -5px;
   cursor: pointer;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
 }

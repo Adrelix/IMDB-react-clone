@@ -5,11 +5,12 @@ import SearchbarPresenter from "../SearchBar/searchbarPresenter";
 import Sidebar from "../SideBar/sidebarPresenter";
 function App() {
   return (
-    <div className="App">
-      <div><SearchbarPresenter/></div>
-      <div><MainPagePresenter/></div>
+    <div class="App">
       <div><Sidebar/></div>
-
+      <div>
+        <div><SearchbarPresenter/></div>
+        <div><MainPagePresenter/></div>
+      </div>
     </div>
   );
 }
