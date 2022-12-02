@@ -1,3 +1,4 @@
+
 function SearchbarView(props){
     function searchOnClickACB(){
       props.onClickSearch(); 
@@ -9,10 +10,10 @@ function SearchbarView(props){
       function homeOnClickACB(){
         window.location.hash="mainContent"
         }
-    return(<div>
-        <input placeholder= "Search here" onInput={textACB}></input>
+    return(<div class="searchbar">
+        <img src={require("./logo.JPG")} onClick={homeOnClickACB} alt="logo" class="image" />
+        <input type="text" placeholder= "Search here" onInput={textACB}></input>
         <button onClick={searchOnClickACB}>Search!</button>
-        <button onClick={homeOnClickACB}>Back to home</button>
         </div>);
 }
 export default SearchbarView;

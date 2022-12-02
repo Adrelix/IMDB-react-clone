@@ -65,10 +65,6 @@
   overflow-y:hidden;
 
 }
-.searchBarResult{
-  
-}
-
 
 @keyframes App-logo-spin {
   from {
@@ -116,4 +112,24 @@ li {
 .flex {
   display: flex;
   flex-direction: column;
+}
+.searchbar{
+  overflow: hidden;
+  background-color:gray;
+}
+.searchbar button{
+  align-items:flex-end;
+  padding: 6px;
+  
+}
+.image{
+  float:left;
+}
+.searchbar input[type=text]{
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  
 }
