@@ -3,25 +3,25 @@ import SearchResultsView from "../SearchResult/searchResultView";
 import React from "react";
 import resolvePromise from "../../Utilities/resolvePromise";
 import promiseNoData from "../../Utilities/promiseNoData";
-import {getTopRated, getMovieDetails} from "../../Utilities/dataSource";
+import {getTopRated, getPopular} from "../../Utilities/dataSource";
 export default
 function MainPagePresenter(props){
-    const [newMovieState]=  React.useState(function initialSearchACB(){return getMovieDetails("new")})
-    const [topMovieState]=  React.useState(function initialSearchACB(){return getMovieDetails("top")})
+    const [popularMovieState]=  React.useState(function initialSearchACB(){return getPopular()})
+    const [topMovieState]=  React.useState(function initialSearchACB(){return getTopRated()})
     const [, reRender]= React.useState(); 
     React.useEffect( componentWasCreatedACB, [] ); 
     
     function componentWasCreatedACB(){  
-        resolvePromise(getMovieDetails({query:"new"}), newMovieState, notifyACB)
-        resolvePromise(getMovieDetails({query:"top"}), topMovieState, notifyACB)
+        resolvePromise(getPopular(), popularMovieState, notifyACB)
+        resolvePromise(getTopRated(), topMovieState, notifyACB)
         function isTakenDownACB(){           
        }
        return isTakenDownACB;    
     }
-    if(!newMovieState)
-        (resolvePromise(getMovieDetails({query:"new"}), newMovieState, notifyACB))
-    if(!topMovieState)
-        (resolvePromise(getTopRated({query:"top"}), topMovieState, notifyACB))
+    if(!popularMovieState.promise)
+        (resolvePromise(getPopular(), popularMovieState, notifyACB))
+    if(!topMovieState.promise)
+        (resolvePromise(getTopRated(), topMovieState, notifyACB))
    
 
 
@@ -29,9 +29,9 @@ function MainPagePresenter(props){
 
 
     return (<div><MainPageView
-        newMovieResult=
-                {promiseNoData(newMovieState) || 
-                <SearchResultsView searchResultClass="mainPageResult" searchResults={newMovieState.data}/>}
+        popularMovieResult=
+                {promiseNoData(popularMovieState) || 
+                <SearchResultsView searchResultClass="mainPageResult" searchResults={popularMovieState.data}/>}
         topMovieResult=
                 {promiseNoData(topMovieState) || 
                 <SearchResultsView searchResultClass="mainPageResult" searchResults={topMovieState.data}/>}
