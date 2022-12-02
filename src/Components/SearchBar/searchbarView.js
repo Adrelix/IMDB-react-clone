@@ -1,13 +1,17 @@
 function SearchbarView(props){
-    function onClickACB(){
-        props.onClickSearch();
+    function searchOnClickACB(){
+      props.onClickSearch(); 
       }
       function textACB(text){
         props.onTextSetQuery(text.target.value);
       }
+      function homeOnClickACB(){
+        window.location.hash="mainContent"
+        }
     return(<div>
         <input placeholder= "Search here" onInput={textACB}></input>
-        <button onClick={onClickACB}>Search!</button>
+        <button onClick={searchOnClickACB}>Search!</button>
+        <button onClick={homeOnClickACB}>Back to home</button>
         </div>);
 }
 export default SearchbarView;

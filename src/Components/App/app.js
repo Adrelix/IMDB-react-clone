@@ -3,7 +3,7 @@ import Show from '../../Utilities/show';
 import MainPagePresenter from '../MainPage/mainPagePresenter'
 import SearchbarPresenter from "../SearchBar/searchbarPresenter";
 import Sidebar from "../SideBar/sidebarPresenter";
-function App() {
+function App(props) {
   return (
     <div class="App">
       <div><Sidebar/></div>
