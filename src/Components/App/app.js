@@ -3,12 +3,17 @@ import Show from '../../Utilities/show';
 import MainPagePresenter from '../MainPage/mainPagePresenter'
 import SearchbarPresenter from "../SearchBar/searchbarPresenter";
 import Sidebar from "../SideBar/sidebarPresenter";
+import TopMovies from '../SideBar/topp100MoviesPresenter';
+
+
+
 function App() {
   return (
-    <div class="App">
+    <div className="App">
       <div><Sidebar/></div>
-      <div class="searchResult">
-        <Show hash="Top100"></Show>
+      <div><TopMovies/></div>
+      <div className="searchResult">
+
         <div><SearchbarPresenter/></div>
         <div><MainPagePresenter/></div>
       </div>
