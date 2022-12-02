@@ -1,3 +1,3 @@
 if (window.location.hash != "#mainContent" &&  window.location.hash !="#search?"){
-    window.location.hash = ""
+    window.location.hash = "#mainContent"
 }

@@ -45,4 +45,9 @@ async function getTrending(){
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
 
-export {searchMovies, getMovieDetails, searchPerson, getTopRated, getPopular, getTrending};
+async function getGenres(){
+    const endpoint = "genre/movie/list?api_key=" + API_KEY;
+    return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
+}
+
+export {searchMovies, getMovieDetails, searchPerson, getTopRated, getPopular, getTrending, getGenres};

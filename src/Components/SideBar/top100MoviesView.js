@@ -1,6 +1,5 @@
 function TopMoviesView(props){
     function searchResultCB(item){
-        console.log(item.id);
         function searchResultsClickACB(){
           console.log("image clicked");
         }
