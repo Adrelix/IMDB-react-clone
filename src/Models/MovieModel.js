@@ -1,15 +1,12 @@
 import { getMovieDetails } from "../Utilities/dataSource";
 import resolvePromise from "../Utilities/resolvePromise";
 class MovieModel{
-    constructor(movieArray =[], currentMovie){
+    constructor(movieArray =[], currentMovie, currentGenre){
         this.observers = [];
         this.movies = movieArray;
         this.currentMoviePromiseState = {};
         this.searchResultsPromiseState = {};
-
     }
-
-
 
     addObserver(obs){
         this.observers = [...this.observers, obs];
@@ -24,7 +21,9 @@ class MovieModel{
         }
     this.observers = this.observers.filter(sameObsCB)
     }
-
+    setCurrentGenre(genreID){
+        this.currentGenre = genreID;
+    }
     notifyObservers(payload){
         function invokeObserverACB(obs){ obs(payload); }    
         try{this.observers.forEach(invokeObserverACB)}catch(err){console.log(err)}
