@@ -6,7 +6,6 @@ import GenreView from "./genreView"
 
 export default
 function Genre(props){
-    console.log(props);
     const [promiseState]=  React.useState(function initialSearchACB(){return getMovieByGenre(props.model.currentGenre)})
     const [, reRender]= React.useState(); 
     React.useEffect( componentWasCreatedACB, [] ); 
