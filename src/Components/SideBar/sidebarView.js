@@ -1,18 +1,27 @@
 function SidebarView(props){
-    console.log("props.genres");
-    console.log(props.genres.genres);
-    function temp(){
-        console.log("option pressed");
-    }
     function goToTopMovies(){
         window.location.hash="#Top100";
     }
     function goToMoviesByGenre(prop){
         console.log(prop);
+        function findMovieId(item){
+            return item.name === prop.target.innerText;
+        }
+        props.onSettingGenre(props.genres.find(findMovieId).id);
+        console.log(props.genres.find(findMovieId).id);
         window.location.hash="#Genre";
     }
     function renderGenres(nextGenre){
-        return <option value={nextGenre} onClick={goToMoviesByGenre}>{nextGenre.name}</option>
+        return <div class="genre-option" value={nextGenre} onClick={goToMoviesByGenre}>{nextGenre.name}</div>
+    }
+    function changeClass(){
+        console.log(document.getElementById('select').className);
+        const currentClassName = document.getElementById('select').className;
+        if(currentClassName === "is-expanded"){
+            document.getElementById('select').className = "is-closed";
+        }else{
+            document.getElementById('select').className = "is-expanded";
+        }
     }
     return (
       <div class="sidebar">
@@ -21,7 +30,8 @@ function SidebarView(props){
             <ul>
                 <li onClick={goToTopMovies}>Top 100 Movies</li>
                 <li>Most Popular Movies</li>
-                <li><select class="dropdown"><option value="choose">Browse by Genre</option>{props.genres.genres.map(renderGenres)}</select></li>
+                <li onClick={changeClass}>Browse by Genre</li>
+                <div id="select" class="is-closed">{props.genres.map(renderGenres)}</div>
             </ul>
             <h2 class="title">TV Shows</h2>
             <ul>
@@ -31,7 +41,7 @@ function SidebarView(props){
             </ul>
             <h2 class="title">Profile</h2>
             <ul>
-                <li onClick={temp}>My Watchlist</li>
+                <li>My Watchlist</li>
                 <li>My Ratings</li>
                 <li>My Lists</li>
             </ul>
@@ -39,5 +49,5 @@ function SidebarView(props){
       </div>
     );
 }
-
 export default SidebarView;
+//<select class="dropdown"><option value="choose">Browse by Genre</option></select>

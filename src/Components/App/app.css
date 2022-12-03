@@ -133,3 +133,22 @@ li {
   font-size: 17px;
   
 }
+.is-expanded {
+  margin-left: 5px;
+  height: auto;
+  visibility: visible;
+  text-align: left;
+  transition: transform 0.5s ease-out;
+  transform-origin: top left;
+}
+.is-closed {
+  height: 0;
+  visibility: hidden;
+  transform: scaleY(0);
+}
+.genre-option {
+  cursor: pointer;
+}
+.genre-option:hover {
+  text-decoration:underline;
+}
