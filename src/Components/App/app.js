@@ -10,8 +10,8 @@ function App(props) {
       <div><Sidebar/></div>
       <Show hash="#Top100"><TopMovies/></Show>
       <div className="searchResult">
-      <div><SearchbarPresenter></SearchbarPresenter></div>
-      <Show hash="#mainContent"><MainPagePresenter/></Show>
+      <div><SearchbarPresenter model = {props.model}></SearchbarPresenter></div>
+      <Show hash="#mainContent"><MainPagePresenter model = {props.model}/></Show>
       </div>
     </div>
   );

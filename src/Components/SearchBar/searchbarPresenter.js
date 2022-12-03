@@ -22,7 +22,10 @@ function Search(props){
     function searchButtonClickACB(){
         resolvePromise(searchMovies({query:searchQuery}),promiseState,notifyACB)
     }
+    function searchResultButtonACB(param){
+        props.model.setCurrentMovie(param.id)
+      }
     return (<div><SearchbarView onTextSetQuery={textACB} onClickSearch={searchButtonClickACB}/><Show hash="#search">
-    {promiseNoData(promiseState) || <SearchResultsView searchResultClass="searchBarResult" searchResults={promiseState.data}/>}</Show>
+    {promiseNoData(promiseState) || <SearchResultsView searchResultClass="searchBarResult" searchResults={promiseState.data} customClickEvent ={searchResultButtonACB}/>}</Show>
     </div>);
 }

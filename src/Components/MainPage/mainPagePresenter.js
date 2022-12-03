@@ -26,14 +26,17 @@ function MainPagePresenter(props){
 
 
     function notifyACB(){ reRender(new Object()); }
+    function searchResultButtonACB(param){
+        props.model.setCurrentMovie(param.id)
+      }
 
 
     return (<div><MainPageView
         popularMovieResult=
                 {promiseNoData(popularMovieState) || 
-                <SearchResultsView searchResultClass="mainPageResult" searchResults={popularMovieState.data}/>}
+                <SearchResultsView searchResultClass="mainPageResult" searchResults={popularMovieState.data} customClickEvent ={searchResultButtonACB}/>}
         topMovieResult=
                 {promiseNoData(topMovieState) || 
-                <SearchResultsView searchResultClass="mainPageResult" searchResults={topMovieState.data}/>}
+                <SearchResultsView searchResultClass="mainPageResult" searchResults={topMovieState.data} customClickEvent ={searchResultButtonACB}/>}
     /></div>);
 }

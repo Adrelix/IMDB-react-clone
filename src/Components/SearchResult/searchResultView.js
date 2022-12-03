@@ -4,8 +4,8 @@ function SearchResultsView(props){
     function renderDishImage(props){
         function searchResultCB(searchResult){
           function searchResultsClickACB(){
-            /*window.location.hash ="#details"
-            customClickEvent(searchResult)*/
+            //window.location.hash ="#details"
+            props.customClickEvent(searchResult)
             console.log("image clicked");
           }
           return <span key={searchResult.id} class= "searchResult" onClick={searchResultsClickACB}>

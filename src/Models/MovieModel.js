@@ -4,7 +4,7 @@ class MovieModel{
     constructor(movieArray =[], currentMovie){
         this.observers = [];
         this.movies = movieArray;
-        this.currentDishPromiseState = {};
+        this.currentMoviePromiseState = {};
         this.searchResultsPromiseState = {};
 
     }
@@ -41,9 +41,9 @@ class MovieModel{
         }else if(id === this.currentDish)return;
         
           
-        this.currentDish = id;
-        this.notifyObservers({currentDish: id})
-        resolvePromise(getMovieDetails(id),this.currentDishPromiseState, notifyACB.bind(this))
+        this.currentMovie= id;
+        this.notifyObservers({currentMovie: id})
+        resolvePromise(getMovieDetails(id),this.currentMoviePromiseState, notifyACB.bind(this))
     }
 }
 export default MovieModel;
