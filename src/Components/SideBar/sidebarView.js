@@ -1,21 +1,18 @@
 function SidebarView(props){
     function goToTopMovies(){
-        window.location.hash="#Top100";
+        window.location.hash="#top100";
     }
     function goToMoviesByGenre(prop){
-        console.log(prop);
         function findMovieId(item){
             return item.name === prop.target.innerText;
         }
         props.onSettingGenre(props.genres.find(findMovieId).id);
-        console.log(props.genres.find(findMovieId).id);
-        window.location.hash="#Genre";
+        window.location.hash="#genre";
     }
     function renderGenres(nextGenre){
         return <div class="genre-option" value={nextGenre} onClick={goToMoviesByGenre}>{nextGenre.name}</div>
     }
     function changeClass(){
-        console.log(document.getElementById('select').className);
         const currentClassName = document.getElementById('select').className;
         if(currentClassName === "is-expanded"){
             document.getElementById('select').className = "is-closed";
@@ -50,4 +47,3 @@ function SidebarView(props){
     );
 }
 export default SidebarView;
-//<select class="dropdown"><option value="choose">Browse by Genre</option></select>
