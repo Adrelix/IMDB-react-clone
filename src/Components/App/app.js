@@ -7,7 +7,7 @@ import TopMovies from '../SideBar/topp100MoviesPresenter';
 function App(props) {
   return (
     <div className="App">
-      <div><Sidebar/></div>
+      <div><Sidebar model = {props.model}/></div>
       <Show hash="#Top100"><TopMovies/></Show>
       <div className="searchResult">
       <div><SearchbarPresenter model = {props.model}></SearchbarPresenter></div>
