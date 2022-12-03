@@ -6,9 +6,6 @@ function TopMoviesView(props){
         return <span key={item.id} class= "searchResult" onClick={searchResultsClickACB}>
         <img src={"https://image.tmdb.org/t/p/w500/"+item.poster_path} height="150"/><div >{item.title}</div></span>
     }
-    function backToMain(){
-        window.location.hash="search";
-    }
     return (
         <div>
             {props.topResults.map(searchResultCB)}
