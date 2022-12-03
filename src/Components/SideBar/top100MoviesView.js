@@ -11,9 +11,6 @@ function TopMoviesView(props){
     }
     return (
         <div>
-            <div>
-                <button onClick={backToMain}>Go back</button>
-            </div>
             {props.topResults.map(searchResultCB)}
         </div>
     )
