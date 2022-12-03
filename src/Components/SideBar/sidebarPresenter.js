@@ -2,10 +2,12 @@ import SidebarView from "./sidebarView";
 import React from "react";
 export default
 function Sidebar(props){
+  function setCurrentGenre(genreID){
+    props.model.setCurrentGenre(genreID);
+  }
     return (
       <SidebarView
-        genres={{
-          genres: [
+        genres={[
             { id: 28, name: "Action" },
             { id: 12, name: "Adventure" },
             { id: 16, name: "Animation" },
@@ -25,8 +27,8 @@ function Sidebar(props){
             { id: 53, name: "Thriller" },
             { id: 10752, name: "War" },
             { id: 37, name: "Western" },
-          ],
-        }}
+          ]
+        } onSettingGenre={setCurrentGenre}
       />
     );
 }
