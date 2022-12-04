@@ -1,11 +1,13 @@
-import { getMovieDetails } from "../Utilities/dataSource";
+import { getMovieDetails, getMovieByGenre } from "../Utilities/dataSource";
 import resolvePromise from "../Utilities/resolvePromise";
 class MovieModel{
     constructor(movieArray =[], currentMovie, currentGenre){
         this.observers = [];
         this.movies = movieArray;
+        this.currentGenre = currentGenre;
         this.currentMoviePromiseState = {};
         this.searchResultsPromiseState = {};
+        this.currentGenrePromiseState = {};
     }
 
     addObserver(obs){
@@ -19,10 +21,17 @@ class MovieModel{
                 return true;
             }
         }
-    this.observers = this.observers.filter(sameObsCB)
+        this.observers = this.observers.filter(sameObsCB)
     }
     setCurrentGenre(genreID){
-        this.currentGenre = genreID;
+        function notifyACB(){    
+            this.notifyObservers();  // no payload 
+        } 
+        if(this.currentGenre !== genreID){
+            this.currentGenre = genreID;
+            resolvePromise(getMovieByGenre(genreID), this.currentGenrePromiseState, notifyACB.bind(this))
+            this.notifyObservers({currentGenre: genreID});
+        }
     }
     notifyObservers(payload){
         function invokeObserverACB(obs){ obs(payload); }    
