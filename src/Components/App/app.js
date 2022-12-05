@@ -12,9 +12,9 @@ function App(props) {
       <Sidebar model = {props.model} />
       <Show hash="#top100"><TopMovies/></Show>
       <SearchbarPresenter model = {props.model}></SearchbarPresenter>
+      <Show hash="#genre"><Genre model = {props.model}/></Show>
       <div className='mainContainer'>
         <Show hash="#mainContent"><MainPagePresenter model = {props.model}/></Show>
-        <Show hash={"#genre"}><Genre model = {props.model}/></Show>
       </div>
       </div>
   );
