@@ -1,5 +1,5 @@
 import SearchbarView from "./searchbarView"
-import SearchResultsView from "../SearchResult/searchResultView";
+import SearchbarResultsView from "./searchbarResultView";
 import React from "react";
 import resolvePromise from "../../Utilities/resolvePromise";
 import promiseNoData from "../../Utilities/promiseNoData";
@@ -27,7 +27,8 @@ function Search(props){
     function searchResultButtonACB(param){
         props.model.setCurrentMovie(param.id)
       }
+    
     return (<div><SearchbarView onTextSetQuery={textACB} onClickSearch={searchButtonClickACB}/><Show hash="#search">
-    {promiseNoData(promiseState) || <SearchResultsView searchResultClass="searchBarResult" searchResults={promiseState.data} customClickEvent ={searchResultButtonACB}/>}</Show>
+    {promiseNoData(promiseState) || <SearchbarResultsView searchResultClass="searchBarResult" searchResults={promiseState.data} customClickEvent ={searchResultButtonACB}/>}</Show>
     </div>);
 }
