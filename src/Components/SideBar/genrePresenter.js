@@ -7,17 +7,19 @@ import GenreView from "./genreView"
 export default
 function Genre(props){
     const [promiseState]=  React.useState({})
-    const [, reRender]= React.useState(props.model.currentGenre); 
+    const [, reRender]= React.useState(); 
     React.useEffect( componentWasCreatedACB, [] ); 
 
+    if (!promiseState.promise) {
+        resolvePromise(getMovieByGenre(props.model.currentGenre, props.model.currentMediaType), promiseState, notifyACB);
+    }
     function observerACB(genre){
-        console.log("test");
-        console.log(genre);
         console.log("test");
         resolvePromise(getMovieByGenre(genre.currentGenre, genre.currentMedia), promiseState, notifyACB);
     }
     
     function componentWasCreatedACB(){ 
+        console.log("genrePresenter created!");
         props.model.addObserver(observerACB);
         function isTakenDownACB(){           
             console.log("genrePresenter is dying");
