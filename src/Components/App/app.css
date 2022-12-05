@@ -166,6 +166,19 @@ li {
   margin-top: 51px;
   margin-left: 340px;
   font-size: 17px;
+  float:left;
+  width: 500px;
+}
+@media screen and (max-width: 1283px){
+  .searchbar input[type=search]{
+    padding: 6px;
+    border: none;
+    margin-top: 51px;
+    margin-left: 200px;
+    font-size: 17px;
+    float:left;
+    width: 500px;
+  }
 }
 
 .is-expanded {
