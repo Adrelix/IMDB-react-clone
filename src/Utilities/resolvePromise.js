@@ -6,26 +6,25 @@ function resolvePromise(promiseToResolve, promiseState, notify){
     promiseState.data= null;           // UI update! The user does not keep seeing results from previous search
     promiseState.error= null;
 
-    if(notify)
+    if(notify) 
         notify();
+   
 
-
-function saveDataACB(result){
+function saveDataACB(result){ 
     if(promiseState.promise !== promiseToResolve) return;
-        promiseState.data= result;
+        promiseState.data= result; 
     if(notify)
         notify();
 
 }  // triggers UI update because of changing state
-function saveErrorACB(err)  {
+function saveErrorACB(err)  { 
     if(promiseState.promise !== promiseToResolve) return;
-        promiseState.error= err;
+        promiseState.error= err; 
     if(notify)
         notify();
 
-
+    
 }    // triggers UI update because of changing state
 promiseToResolve.then(saveDataACB).catch(saveErrorACB);
-
 }
 export default resolvePromise;
