@@ -54,6 +54,7 @@
   flex: 2;
 }
 
+
 .mainPageResultWrapper{
   width: 80%;
   display: flex;
@@ -145,20 +146,28 @@ li {
   background-color:gray;
 }
 .searchbar button{
+  cursor: pointer;
   align-items:flex-end;
   padding: 6px;
-  
+  margin-top: 51px;
+  font-size: 17px;
+  float:left;
+  border:0px solid white;
+  background-color: white;
+
 }
 .image{
+  cursor: pointer;
   float:left;
 }
-.searchbar input[type=text]{
+.searchbar input[type=search]{
   padding: 6px;
   border: none;
-  margin-top: 8px;
-  margin-right: 16px;
+  margin-top: 51px;
+  margin-left: 340px;
   font-size: 17px;
 }
+
 .is-expanded {
   margin-left: 5px;
   height: auto;
