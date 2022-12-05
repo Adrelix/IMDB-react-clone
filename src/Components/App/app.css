@@ -138,7 +138,7 @@ li {
   height: auto;
   visibility: visible;
   text-align: left;
-  transition: transform 0.5s ease-out;
+  transition: transform 0.3s ease-out;
   transform-origin: top left;
 }
 .is-closed {
