@@ -154,7 +154,9 @@ li {
   font-size: 17px;
   float:left;
   border:0px solid white;
-  background-color: white;
+  background-color: rgb(248, 232, 7);
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
 
 }
 .image{
@@ -167,6 +169,21 @@ li {
   margin-top: 51px;
   margin-left: 340px;
   font-size: 17px;
+  float:left;
+  width: 500px;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
+}
+@media screen and (max-width: 1283px){
+  .searchbar input[type=search]{
+    padding: 6px;
+    border: none;
+    margin-top: 51px;
+    margin-left: 200px;
+    font-size: 17px;
+    float:left;
+    width: 500px;
+  }
 }
 
 .is-expanded {
