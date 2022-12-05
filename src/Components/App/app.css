@@ -14,6 +14,7 @@
   }
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -28,6 +29,20 @@
 .App-link {
   color: #61dafb;
 }
+
+.mainContainer{
+  display: flex;
+  position: fixed;
+  z-index:2;
+  margin-top: 100px;
+  margin-left: 250px;
+}
+
+.searchBarResult{
+      margin-top: 100px;
+      margin-left: 250px;
+  }
+
 .searchResult{
   flex: 1.5;
   text-align :center;
@@ -49,6 +64,10 @@
   align-items: center;
   justify-content: center;
 
+}
+.mainPageResultContainer{
+  background-color: blue;
+  margin-left: 250px;
 }
 
 .mainPageResult{
@@ -76,9 +95,12 @@
 }
 .sidebar {
   width: 250px;
-  margin-top: 50px;
+  height: 100vh;
+  margin-top: 100px;
   flex-direction: column;
   display: flex;
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
   background-color: gray;
   border-radius: 5px;
 }
@@ -114,6 +136,9 @@ li {
   flex-direction: column;
 }
 .searchbar{
+  position: fixed; 
+  z-index: 3;
+  width: 100vw;
   overflow: hidden;
   background-color:gray;
 }

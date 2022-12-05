@@ -9,15 +9,14 @@ function App(props) {
   console.log(props.model.currentGenre);
   return (
     <div className="App">
-      <div><Sidebar model = {props.model}/></div>
+      <Sidebar model = {props.model} />
       <Show hash="#top100"><TopMovies/></Show>
-      <div className="searchResult">
-      <div>
-        <SearchbarPresenter model = {props.model}></SearchbarPresenter></div>
+      <SearchbarPresenter model = {props.model}></SearchbarPresenter>
+      <div className='mainContainer'>
         <Show hash="#mainContent"><MainPagePresenter model = {props.model}/></Show>
         <Show hash={"#genre"}><Genre model = {props.model}/></Show>
       </div>
-    </div>
+      </div>
   );
 }
 
