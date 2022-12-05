@@ -1,5 +1,4 @@
 function GenreView(props){
-    console.log(props);
     function searchResultCB(item){
         function searchResultsClickACB(){
           console.log("image clicked");
@@ -8,7 +7,7 @@ function GenreView(props){
         <img src={"https://image.tmdb.org/t/p/w500/"+item.poster_path} height="150"/><div >{item.title === undefined ? item.name : item.title}</div></span>
     }
     return (
-        <div>
+        <div class="genre-results">
             {props.genreResults.map(searchResultCB)}
         </div>
     )

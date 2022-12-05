@@ -1,4 +1,4 @@
-function TopMoviesView(props){
+/*function TopMoviesView(props){
     function searchResultCB(item){
         function searchResultsClickACB(){
           console.log("image clicked");
@@ -13,4 +13,4 @@ function TopMoviesView(props){
     )
 }
 
-export default TopMoviesView;
+export default TopMoviesView;*/

@@ -1,5 +1,4 @@
-import React from "react";
-import resolvePromise from "../../Utilities/resolvePromise";
+/*import resolvePromise from "../../Utilities/resolvePromise";
 import promiseNoData from "../../Utilities/promiseNoData";
 import {getTopRated} from "../../Utilities/dataSource";
 import TopMoviesView from "./top100MoviesView";
@@ -24,4 +23,4 @@ function TopMovies(){
     }
     return (<div>{promiseNoData(promiseState) || <TopMoviesView topResults={promiseState.data}/>}
     </div>);
-}
+}*/

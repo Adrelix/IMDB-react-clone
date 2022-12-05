@@ -46,13 +46,17 @@ async function getTrending(){
 }
 
 async function getMovieByGenre(genreID, mediaType){
-    console.log(mediaType);
     let endpoint = "discover/" + mediaType + "?api_key=" + API_KEY + "&language=en-US&with_genres=" + genreID;
     if(mediaType === "movie"){
-        endpoint = "discover/" + mediaType + "?api_key=" + API_KEY + "&language=en-US&sort_by=release_date.desc&include_adult=false&include_video=false&page=1&vote_count.gte=5000&with_genres=" + genreID + "&with_watch_monetization_types=flatrate" ; 
+        endpoint =
+          "discover/" +
+          mediaType +
+          "?api_key=" +
+          API_KEY +
+          "&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1000&with_genres=" +
+          genreID +
+          "&without_keywords=softcore"; 
     }
-    // https://api.themoviedb.org/3/discover/movie?api_key=7b3e300ea2d9e9ca370383296f610bce
-    console.log(BASE_URL+endpoint);
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
 

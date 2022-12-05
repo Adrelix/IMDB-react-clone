@@ -2,7 +2,7 @@ import React from 'react';
 
 function SidebarView(props){
     function goToTopMovies(){
-        window.location.hash="#top100";
+        //window.location.hash="#top100";
     }
     function goToGenre(genre, mediaType){
         function findMovieId(item){
@@ -37,7 +37,7 @@ function SidebarView(props){
     }
     return (
       <div class="sidebar">
-        <div class="sidebarText">
+        <div class="sidebar-content">
         <h2 class="title">Movies</h2>
             <ul>
                 <li onClick={goToTopMovies}>Top 100 Movies</li>

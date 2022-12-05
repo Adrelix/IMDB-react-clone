@@ -10,8 +10,11 @@ function Genre(props){
     const [, reRender]= React.useState(props.model.currentGenre); 
     React.useEffect( componentWasCreatedACB, [] ); 
 
-    function observerACB(){
-        resolvePromise(getMovieByGenre(props.model.currentGenre, props.model.currentMediaType), promiseState, notifyACB);
+    function observerACB(genre){
+        console.log("test");
+        console.log(genre);
+        console.log("test");
+        resolvePromise(getMovieByGenre(genre.currentGenre, genre.currentMedia), promiseState, notifyACB);
     }
     
     function componentWasCreatedACB(){ 
