@@ -14,7 +14,6 @@
   }
 }
 
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -82,9 +81,11 @@
   margin: 0px;
   padding: 10px;
   overflow-y:hidden;
-
 }
-
+.genre-results {
+  margin-top: 100px;
+  margin-left: 250px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -95,16 +96,17 @@
 }
 .sidebar {
   width: 250px;
-  height: 100vh;
+  height: calc(100% - 100px);
   margin-top: 100px;
   flex-direction: column;
   display: flex;
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  position: absolute; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
+  overflow-y:auto;
   background-color: gray;
   border-radius: 5px;
 }
-.sidebarText {
+.sidebar-content {
   display: flex;
   flex-direction: column;
   margin: 0px 0px 0px 20px;
@@ -156,7 +158,6 @@ li {
   margin-top: 8px;
   margin-right: 16px;
   font-size: 17px;
-  
 }
 .is-expanded {
   margin-left: 5px;
@@ -169,6 +170,8 @@ li {
 .is-closed {
   height: 0;
   visibility: hidden;
+  transition: transform 0.3s ease-out;
+  transform-origin: bottom right;
   transform: scaleY(0);
 }
 .genre-option {
@@ -176,4 +179,7 @@ li {
 }
 .genre-option:hover {
   text-decoration:underline;
+}
+.scroll {
+  overflow-y: auto;
 }
