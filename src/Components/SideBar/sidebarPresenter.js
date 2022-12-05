@@ -3,8 +3,8 @@ import React from "react";
 
 export default
 function Sidebar(props){
-  function setCurrentGenre(genreID){
-    props.model.setCurrentGenre(genreID);
+  function setCurrentGenre(genreID, mediaType){
+    props.model.setCurrentGenre(genreID, mediaType);
   }
     return (
       <SidebarView

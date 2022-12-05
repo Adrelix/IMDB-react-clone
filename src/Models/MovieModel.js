@@ -1,10 +1,11 @@
 import { getMovieDetails, getMovieByGenre } from "../Utilities/dataSource";
 import resolvePromise from "../Utilities/resolvePromise";
 class MovieModel{
-    constructor(movieArray =[], currentMovie, currentGenre){
+    constructor(movieArray =[], currentMovie, currentGenre, currentMediaType){
         this.observers = [];
         this.movies = movieArray;
         this.currentGenre = currentGenre;
+        this.currentMediaType = currentMediaType;
         this.currentMoviePromiseState = {};
         this.searchResultsPromiseState = {};
         this.currentGenrePromiseState = {};
@@ -23,14 +24,16 @@ class MovieModel{
         }
         this.observers = this.observers.filter(sameObsCB)
     }
-    setCurrentGenre(genreID){
+    setCurrentGenre(genreID, type){
+        console.log(genreID, type);
         function notifyACB(){    
             this.notifyObservers();  // no payload 
         } 
         if(this.currentGenre !== genreID){
             this.currentGenre = genreID;
-            resolvePromise(getMovieByGenre(genreID), this.currentGenrePromiseState, notifyACB.bind(this))
-            this.notifyObservers({currentGenre: genreID});
+            this.currentMediaType = type;
+            //resolvePromise(getMovieByGenre(genreID), this.currentGenrePromiseState, notifyACB.bind(this))
+            this.notifyObservers({currentGenre: genreID, currentMedia: type});
         }
     }
     notifyObservers(payload){

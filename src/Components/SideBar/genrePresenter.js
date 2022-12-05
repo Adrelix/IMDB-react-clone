@@ -11,7 +11,7 @@ function Genre(props){
     React.useEffect( componentWasCreatedACB, [] ); 
 
     function observerACB(){
-        resolvePromise(getMovieByGenre(props.model.currentGenre), promiseState, notifyACB)
+        resolvePromise(getMovieByGenre(props.model.currentGenre, props.model.currentMediaType), promiseState, notifyACB);
     }
     
     function componentWasCreatedACB(){ 
@@ -23,10 +23,6 @@ function Genre(props){
        return isTakenDownACB;    
     }
     function notifyACB(){ reRender(new Object()); }
-
-    if(!promiseState.promise){
-        (resolvePromise(getMovieByGenre({currentGenre: props.model.currentGenre}), promiseState, notifyACB))
-    }
     return (<div>{promiseNoData(promiseState) || <GenreView genreResults={promiseState.data}/>}
     </div>);
 }

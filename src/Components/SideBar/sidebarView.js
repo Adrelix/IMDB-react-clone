@@ -4,12 +4,17 @@ function SidebarView(props){
     function goToTopMovies(){
         window.location.hash="#top100";
     }
-    function goToGenre(genre, type){
+    function goToGenre(genre, mediaType){
         function findMovieId(item){
             return item.name === genre.name;
         }
-        props.onSettingGenre(props.movieGenres.find(findMovieId).id);
-        window.location.hash="#genre"; //not working properly yet, have to go to #mainContent and click new genre to render new content. Should be like #genre=action
+        if(mediaType === "movie"){
+            props.onSettingGenre(props.movieGenres.find(findMovieId).id, mediaType);
+        }else if(mediaType === "tv"){
+            props.onSettingGenre(props.tvGenres.find(findMovieId).id, mediaType);
+        }
+        
+        window.location.hash="#genre"; //not working properly yet. Should be like #genre=action
     }
     function renderGenres(nextGenre, type){
         return <div class="genre-option" value={nextGenre} onClick={() => goToGenre(nextGenre, type)}>{nextGenre.name}</div>
@@ -45,7 +50,7 @@ function SidebarView(props){
                 <li>Top 100 TV Shows</li>
                 <li>Most Popular TV Shows</li>
                 <li onClick={changeTVClass}>Browse by Genre</li>
-                <div id="selectTV" class="is-closed">{props.tvGenres.map((genre) => renderGenres(genre, "tvShow"))}</div>
+                <div id="selectTV" class="is-closed">{props.tvGenres.map((genre) => renderGenres(genre, "tv"))}</div>
             </ul>
             <h2 class="title">Profile</h2>
             <ul>

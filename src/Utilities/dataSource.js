@@ -45,8 +45,9 @@ async function getTrending(){
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
 
-async function getMovieByGenre(genreID){
-    const endpoint = "discover/movie?api_key=" + API_KEY + "&with_genres=" + genreID;
+async function getMovieByGenre(genreID, mediaType){
+    console.log(mediaType);
+    const endpoint = "discover/" + mediaType + "?api_key=" + API_KEY + "&sort_by=popularity.desc&include_adult=false&with_genres=" + genreID;
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
 
