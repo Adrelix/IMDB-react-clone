@@ -25,16 +25,15 @@ class MovieModel{
         this.observers = this.observers.filter(sameObsCB)
     }
     setCurrentGenre(genreID, type){
-        //console.log(genreID, type);
-        function notifyACB(){    
-            this.notifyObservers({currentGenre: genreID, currentMedia: type});  // no payload 
-        }
+        /*function notifyACB(){    
+            this.notifyObservers({currentGenre: genreID, currentMedia: type}); 
+        }*/
         if(this.currentGenre !== genreID){
             this.currentGenre = genreID;
             this.currentMediaType = type;  
+            //resolvePromise(getMovieByGenre(genreID, type), this.currentGenrePromiseState, notifyACB.bind(this));
+            this.notifyObservers({currentGenre: genreID, currentMedia: type});
         }
-        this.notifyObservers({currentGenre: genreID, currentMedia: type});
-        resolvePromise(getMovieByGenre(genreID, type), this.currentGenrePromiseState, notifyACB.bind(this));
     }
     notifyObservers(payload){
         function invokeObserverACB(obs){ obs(payload); }    
