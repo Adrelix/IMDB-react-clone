@@ -188,19 +188,18 @@ li {
 .is-expanded {
   margin-left: 5px;
   height: auto;
-  visibility: visible;
   text-align: left;
   transition: transform 0.3s ease-out;
   transform-origin: top left;
 }
 .is-closed {
   margin-left: 5px;
-  height: 0;
-  visibility: visible;
+  height: 0px;
   text-align: left;
-  transition: transform 0.3s ease-out;
+  visibility: visible;
   transform-origin: top left;
   transform: scaleY(0);
+  transition: transform 0.3s ease-out;
 }
 .genre-option {
   cursor: pointer;
@@ -210,4 +209,28 @@ li {
 }
 .scroll {
   overflow-y: auto;
+}
+.page-button {
+  display: inline-block;
+  background-color: gray;
+  border-radius: 10px;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  width: 100px;
+  transition: all 0.1s;
+  cursor: pointer;
+  margin: 5px;
+}
+.page-button:active {
+  background-color: yellow;
+}
+.button-placement {
+  display: flex;
+  text-align: center;
+} 
+.page-number {
+  margin-top: 12px;
+  margin: 12px 10px 0px 10px;
 }
