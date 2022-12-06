@@ -45,17 +45,18 @@ async function getTrending(){
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
 
-async function getMovieByGenre(genreID, mediaType){
-    let endpoint = "discover/" + mediaType + "?api_key=" + API_KEY + "&language=en-US&with_genres=" + genreID;
-    if(mediaType === "movie"){
-        endpoint =
-          "discover/" +
-          mediaType +
-          "?api_key=" +
-          API_KEY +
-          "&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1000&with_genres=" +
-          genreID +
-          "&without_keywords=softcore"; 
+async function getMovieByGenre(genreID, mediaType, page){    
+    let endpoint = "discover/" + mediaType + "?api_key=" + API_KEY + "&page=" + page + "&with_genres=" + genreID;
+    if (mediaType === "movie") {
+      endpoint =
+        "discover/" +
+        mediaType +
+        "?api_key=" +
+        API_KEY +
+        "&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=" +
+        page +
+        "&vote_count.gte=200&with_genres=" +
+        genreID;
     }
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
