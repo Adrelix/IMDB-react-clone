@@ -13,9 +13,12 @@ function Genre(props){
     if (!promiseState.promise) {
         resolvePromise(getMovieByGenre(props.model.currentGenre, props.model.currentMediaType), promiseState, notifyACB);
     }
-    function observerACB(genre){
-        console.log("test");
-        resolvePromise(getMovieByGenre(genre.currentGenre, genre.currentMedia), promiseState, notifyACB);
+    function observerACB(){
+        resolvePromise(getMovieByGenre(props.model.currentGenre, props.model.currentMediaType, props.model.pageNumber), promiseState, notifyACB);
+    }
+    function changePage(change){
+        props.model.changePageNumber(change);
+        //resolvePromise(getMovieByGenre(genre.currentGenre, genre.currentMedia, currentPage), promiseState, notifyACB);
     }
     
     function componentWasCreatedACB(){ 
@@ -28,6 +31,6 @@ function Genre(props){
        return isTakenDownACB;    
     }
     function notifyACB(){ reRender(new Object()); }
-    return (<div>{promiseNoData(promiseState) || <GenreView genreResults={promiseState.data}/>}
+    return (<div>{promiseNoData(promiseState) || <GenreView genreResults={promiseState.data} page={props.model.pageNumber} onChangingPage={changePage}/>}
     </div>);
 }
