@@ -2,7 +2,7 @@ import React from 'react';
 
 function SidebarView(props){
     function goToTopMovies(){
-        window.location.hash="#top100";
+        //window.location.hash="#top100";
     }
     function goToGenre(genre, mediaType){
         function findMovieId(item){
@@ -17,40 +17,32 @@ function SidebarView(props){
         window.location.hash="#genre"; //not working properly yet. Should be like #genre=action
     }
     function renderGenres(nextGenre, type){
-        return <div class="genre-option" value={nextGenre} onClick={() => goToGenre(nextGenre, type)}>{nextGenre.name}</div>
+        return <div class="genre-option" value={nextGenre + type} onClick={() => goToGenre(nextGenre, type)}>{nextGenre.name}</div>
     }
-    function changeMovieClass(){
-        const currentClassName = document.getElementById('select').className;
+    function changeClass(type){
+        const currentClassName = document.getElementById("select" + type).className;
         if(currentClassName === "is-expanded"){
-            document.getElementById('select').className = "is-closed";
+            document.getElementById("select" + type).className = "is-closed";
         }else{
-            document.getElementById('select').className = "is-expanded";
-        }
-    }
-    function changeTVClass(){
-        const currentClassName = document.getElementById('selectTV').className;
-        if(currentClassName === "is-expanded"){
-            document.getElementById('selectTV').className = "is-closed";
-        }else{
-            document.getElementById('selectTV').className = "is-expanded";
+            document.getElementById("select" + type).className = "is-expanded";
         }
     }
     return (
       <div class="sidebar">
-        <div class="sidebarText">
+        <div class="sidebar-content">
         <h2 class="title">Movies</h2>
             <ul>
                 <li onClick={goToTopMovies}>Top 100 Movies</li>
                 <li>Most Popular Movies</li>
-                <li onClick={changeMovieClass}>Browse by Genre</li>
-                <div id="select" class="is-closed">{props.movieGenres.map((genre) => renderGenres(genre, "movie"))}</div>
+                <li onClick={() => changeClass("MOVIE")} value="browseMovie">Browse by Genre</li>
+                <div id="selectMOVIE" class="is-closed" value="movieGenres">{props.movieGenres.map((genre) => renderGenres(genre, "movie"))}</div>
             </ul>
             <h2 class="title">TV Shows</h2>
             <ul>
                 <li>Top 100 TV Shows</li>
                 <li>Most Popular TV Shows</li>
-                <li onClick={changeTVClass}>Browse by Genre</li>
-                <div id="selectTV" class="is-closed">{props.tvGenres.map((genre) => renderGenres(genre, "tv"))}</div>
+                <li onClick={() => changeClass("TV")} value="browseTv">Browse by Genre</li>
+                <div id="selectTV" class="is-closed" value="TVGenres">{props.tvGenres.map((genre) => renderGenres(genre, "tv"))}</div>
             </ul>
             <h2 class="title">Profile</h2>
             <ul>

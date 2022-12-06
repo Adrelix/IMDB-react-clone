@@ -31,7 +31,7 @@ function MainPagePresenter(props){
       }
 
 
-    return (<div><MainPageView
+    return (<div><MainPageView 
         popularMovieResult=
                 {promiseNoData(popularMovieState) || 
                 <SearchResultsView searchResultClass="mainPageResult" searchResults={popularMovieState.data} customClickEvent ={searchResultButtonACB}/>}

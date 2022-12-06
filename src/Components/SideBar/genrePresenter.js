@@ -7,14 +7,22 @@ import GenreView from "./genreView"
 export default
 function Genre(props){
     const [promiseState]=  React.useState({})
-    const [, reRender]= React.useState(props.model.currentGenre); 
+    const [, reRender]= React.useState(); 
     React.useEffect( componentWasCreatedACB, [] ); 
 
-    function observerACB(){
+    if (!promiseState.promise) {
         resolvePromise(getMovieByGenre(props.model.currentGenre, props.model.currentMediaType), promiseState, notifyACB);
+    }
+    function observerACB(){
+        resolvePromise(getMovieByGenre(props.model.currentGenre, props.model.currentMediaType, props.model.pageNumber), promiseState, notifyACB);
+    }
+    function changePage(change){
+        props.model.changePageNumber(change);
+        //resolvePromise(getMovieByGenre(genre.currentGenre, genre.currentMedia, currentPage), promiseState, notifyACB);
     }
     
     function componentWasCreatedACB(){ 
+        console.log("genrePresenter created!");
         props.model.addObserver(observerACB);
         function isTakenDownACB(){           
             console.log("genrePresenter is dying");
@@ -23,6 +31,6 @@ function Genre(props){
        return isTakenDownACB;    
     }
     function notifyACB(){ reRender(new Object()); }
-    return (<div>{promiseNoData(promiseState) || <GenreView genreResults={promiseState.data}/>}
+    return (<div>{promiseNoData(promiseState) || <GenreView genreResults={promiseState.data} page={props.model.pageNumber} onChangingPage={changePage}/>}
     </div>);
 }

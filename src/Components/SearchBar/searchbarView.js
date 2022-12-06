@@ -1,18 +1,25 @@
 
 function SearchbarView(props){
-    function searchOnClickACB(){
+    function searchOnClickACB(param){
       props.onClickSearch(); 
       window.location.hash ="search"
       }
+    function inputOnClickACB(param){
+      if(param.code === "Enter"){
+        props.onClickSearch(); 
+        window.location.hash ="search"
+      }
+    }
       function textACB(text){
         props.onTextSetQuery(text.target.value);
       }
       function homeOnClickACB(){
-        window.location.hash="mainContent"
+        window.location.reload();
         }
+     
     return(<div class="searchbar">
         <img src={require("./logo.JPG")} onClick={homeOnClickACB} alt="logo" class="image" />
-        <input type="text" placeholder= "Search here" onInput={textACB}></input>
+        <input type="search" placeholder="Search here" onInput={textACB} onKeyUp={inputOnClickACB}></input>
         <button onClick={searchOnClickACB}>Search!</button>
         </div>);
 }

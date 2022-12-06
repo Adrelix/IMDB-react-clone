@@ -1,11 +1,12 @@
 import { getMovieDetails, getMovieByGenre } from "../Utilities/dataSource";
 import resolvePromise from "../Utilities/resolvePromise";
 class MovieModel{
-    constructor(movieArray =[], currentMovie, currentGenre, currentMediaType){
+    constructor(movieArray =[], currentMovie, currentGenre, currentMediaType, pageNumber){
         this.observers = [];
         this.movies = movieArray;
         this.currentGenre = currentGenre;
         this.currentMediaType = currentMediaType;
+        this.pageNumber = 1;
         this.currentMoviePromiseState = {};
         this.searchResultsPromiseState = {};
         this.currentGenrePromiseState = {};
@@ -25,15 +26,26 @@ class MovieModel{
         this.observers = this.observers.filter(sameObsCB)
     }
     setCurrentGenre(genreID, type){
-        console.log(genreID, type);
-        function notifyACB(){    
-            this.notifyObservers();  // no payload 
-        } 
-        if(this.currentGenre !== genreID){
+        /*function notifyACB(){    
+            this.notifyObservers({currentGenre: genreID, currentMedia: type}); 
+        }*/
+        if(genreID !== this.currentGenre || type !== this.currentMediaType){
+            this.pageNumber = 1;
+        }
+        if(this.currentGenre !== genreID || (this.currentGenre === genreID && type !== this.currentMediaType)){
             this.currentGenre = genreID;
-            this.currentMediaType = type;
-            //resolvePromise(getMovieByGenre(genreID), this.currentGenrePromiseState, notifyACB.bind(this))
+            this.currentMediaType = type;  
+            //resolvePromise(getMovieByGenre(genreID, type), this.currentGenrePromiseState, notifyACB.bind(this));
             this.notifyObservers({currentGenre: genreID, currentMedia: type});
+        }
+    }
+    changePageNumber(page){
+        console.log(page);
+        if(this.pageNumber!==this.pageNumber + 1){
+            this.pageNumber = page;
+            this.notifyObservers({pageNumber: page});
+        }else{
+            this.pageNumber = page;
         }
     }
     notifyObservers(payload){
