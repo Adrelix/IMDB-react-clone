@@ -198,7 +198,7 @@ li {
   text-align: left;
   visibility: visible;
   transform-origin: top left;
-  transform: scaleY(0);
+  transform: scaleY(0); /*find a way to animate the collapse and expansion*/
   transition: transform 0.3s ease-out;
 }
 .genre-option {
