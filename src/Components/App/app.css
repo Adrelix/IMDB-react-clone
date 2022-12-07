@@ -62,7 +62,7 @@
 }
 .result{
   overflow: hidden;
-  border: 5px solid gray;
+  border: 5px solid white;
   cursor: pointer;
   text-align :center;
   display: inline-block;
