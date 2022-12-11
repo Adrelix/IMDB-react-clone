@@ -17,7 +17,6 @@ class MovieModel{
     }
 
     removeObserver(obsToRemove){
-   
         function sameObsCB(obs){
             if(obs.name !== obsToRemove.name){
                 return true;
@@ -26,17 +25,21 @@ class MovieModel{
         this.observers = this.observers.filter(sameObsCB)
     }
     setCurrentGenre(genreID, type){
-        /*function notifyACB(){    
-            this.notifyObservers({currentGenre: genreID, currentMedia: type}); 
-        }*/
+        console.log(genreID, type);
         if(genreID !== this.currentGenre || type !== this.currentMediaType){
             this.pageNumber = 1;
         }
         if(this.currentGenre !== genreID || (this.currentGenre === genreID && type !== this.currentMediaType)){
             this.currentGenre = genreID;
             this.currentMediaType = type;  
-            //resolvePromise(getMovieByGenre(genreID, type), this.currentGenrePromiseState, notifyACB.bind(this));
             this.notifyObservers({currentGenre: genreID, currentMedia: type});
+        }
+    }
+    setCurrentType(type){
+        if(this.currentMediaType !== type){
+            this.pageNumber = 1;
+            this.currentMediaType = type;
+            this.notifyObservers({currentMedia: type});
         }
     }
     changePageNumber(page){

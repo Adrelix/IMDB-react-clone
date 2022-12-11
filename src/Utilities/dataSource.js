@@ -11,7 +11,6 @@ function treatHTTPResponseACB(response){
 const options = {
     method: 'GET'
 };
-
 async function getMovieDetails(movieID){
     const endpoint = "movie/" + movieID.toString() + "?api_key=" + API_KEY;
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB);
@@ -22,19 +21,19 @@ async function searchMovies(paramsObj){
     console.log(BASE_URL+endpoint);
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
-
-async function searchPerson(paramsObj){
+async function searchMulti(paramsObj){
     const searchParams = new URLSearchParams(paramsObj);
-    const endpoint = "search/person?api_key=" + API_KEY + "&" + searchParams;
+    const endpoint = "search/multi?api_key=" + API_KEY + "&language=en-US&" + searchParams + "&page=1&include_adult=false";
     console.log(BASE_URL+endpoint);
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
-
-async function getTopRated(){
-    const endpoint = "movie/top_rated?api_key=" + API_KEY + "&language=en-US&page=1&region=SE";
+async function getTopRated(page, type){
+    let endpoint = "movie/top_rated?api_key=" + API_KEY + "&language=en-US&page=1&region=SE&page=" + page;
+    if(type === "tv"){
+        endpoint = "tv/top_rated?api_key=" + API_KEY + "&language=en-US&page=1&page=" + page;
+    }
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
-
 async function getPopular(){
     const endpoint = "movie/popular?api_key=" + API_KEY + "&language=en-US&page=1&region=GB";
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
@@ -61,4 +60,4 @@ async function getMovieByGenre(genreID, mediaType, page){
     return fetch(BASE_URL+endpoint, options).then(treatHTTPResponseACB).then(transformResultCB);
 }
 
-export {searchMovies, getMovieDetails, searchPerson, getTopRated, getPopular, getTrending, getMovieByGenre};
+export {searchMovies, getMovieDetails, searchMulti, getTopRated, getPopular, getTrending, getMovieByGenre};

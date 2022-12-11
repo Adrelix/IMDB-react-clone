@@ -6,6 +6,9 @@ function Sidebar(props){
   function setCurrentGenre(genreID, mediaType){
     props.model.setCurrentGenre(genreID, mediaType);
   }
+  function setCurrentType(mediaType){
+    props.model.setCurrentType(mediaType);
+  }
     return (
       <SidebarView
         movieGenres={[
@@ -48,6 +51,7 @@ function Sidebar(props){
           { id: 37, name: "Western" },
         ]}
         onSettingGenre={setCurrentGenre}
+        onSettingType={setCurrentType}
       />
     );
 }

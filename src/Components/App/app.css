@@ -29,22 +29,19 @@
   color: #61dafb;
 }
 
-.mainContainer{
-  display: flex;
-  position: fixed;
-  z-index:2;
+.mainContainer {
+  flex: 1.5;
+  margin-top: 100px;
+}
+
+.searchBarResult {
   margin-top: 100px;
   margin-left: 250px;
 }
 
-.searchBarResult{
-      margin-top: 100px;
-      margin-left: 250px;
-  }
-
-.searchResult{
+.searchResult {
   flex: 1.5;
-  text-align :center;
+  text-align: center;
   display: inline-block;
   height: 100%;
   width: 200px;
@@ -55,58 +52,62 @@
 }
 
 
-.mainPageResultWrapper{
+.mainPageResultWrapper {
+  margin-top: 25px;
+  margin-left: 250px;
   width: 80%;
   display: flex;
-  display: inline;
   flex-direction: column;
   height: wrap;
   align-items: center;
   justify-content: center;
 
 }
-.mainPageResultContainer{
+
+.mainPageResultContainer {
   background-color: blue;
   margin-left: 250px;
 }
 
-.mainPageResult{
+.mainPageResult {
   flex: 1.5;
-  text-align :center;
+  text-align: center;
   display: flex;
   flex-direction: row;
-  align-content: flex-start;  
+  align-content: flex-start;
   height: 270px;
-  width:70vw;
+  width: 70vw;
   vertical-align: text-top;
   margin: 0px;
   padding: 10px;
-  overflow-y:hidden;
+  overflow-y: hidden;
 }
+
 .genre-results {
-  margin-top: 100px;
   margin-left: 250px;
 }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 .sidebar {
   width: 250px;
-  height: calc(100% - 100px);
+  height: 140%;
   margin-top: 100px;
   flex-direction: column;
-  display: flex;
-  position: absolute; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  overflow-y:auto;
-  background-color: gray;
-  border-radius: 5px;
+  position: absolute;
+  background-color: black;
+  color: white;
+  opacity: 0.9;
 }
+
 .sidebar-content {
   display: flex;
   flex-direction: column;
@@ -114,7 +115,12 @@
 }
 
 .title {
-  display:flex;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.title ul {
+  display: flex;
   margin-bottom: 20px;
 }
 
@@ -125,8 +131,9 @@ ul {
   list-style-image: url("../bee.png");
   margin-top: -20px;
 }
+
 li:hover {
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 li {
@@ -138,78 +145,86 @@ li {
   display: flex;
   flex-direction: column;
 }
-.searchbar{
-  position: fixed; 
+
+.searchbar {
+  position: fixed;
   z-index: 3;
   width: 100vw;
   overflow: hidden;
-  background-color:gray;
+  background-color: gray;
 }
-.searchbar button{
+
+.searchbar button {
   cursor: pointer;
-  align-items:flex-end;
+  align-items: flex-end;
   padding: 6px;
   margin-top: 51px;
   font-size: 17px;
-  float:left;
-  border:0px solid white;
+  float: left;
+  border: 0px solid white;
   background-color: rgb(248, 232, 7);
   border-bottom-right-radius: 25px;
   border-top-right-radius: 25px;
+}
 
-}
-.image{
+.image {
   cursor: pointer;
-  float:left;
+  float: left;
 }
-.searchbar input[type=search]{
+
+.searchbar input[type=search] {
   padding: 6px;
   border: none;
   margin-top: 51px;
   margin-left: 340px;
   font-size: 17px;
-  float:left;
+  float: left;
   width: 500px;
   border-bottom-left-radius: 25px;
   border-top-left-radius: 25px;
 }
-@media screen and (max-width: 1283px){
-  .searchbar input[type=search]{
+
+@media screen and (max-width: 1283px) {
+  .searchbar input[type=search] {
     padding: 6px;
     border: none;
     margin-top: 51px;
     margin-left: 200px;
     font-size: 17px;
-    float:left;
+    float: left;
     width: 500px;
   }
 }
 
 .is-expanded {
   margin-left: 5px;
-  height: auto;
+  height: 350px;
   text-align: left;
-  transition: transform 0.3s ease-out;
   transform-origin: top left;
+  transition: all 0.3s linear 0.2s;
 }
+
 .is-closed {
   margin-left: 5px;
   height: 0px;
   text-align: left;
-  visibility: visible;
   transform-origin: top left;
-  transform: scaleY(0); /*find a way to animate the collapse and expansion*/
-  transition: transform 0.3s ease-out;
+  transform: scaleY(0);
+  transition: all 0.3s linear 0.2s;
 }
+
 .genre-option {
   cursor: pointer;
 }
+
 .genre-option:hover {
-  text-decoration:underline;
+  text-decoration: underline;
 }
+
 .scroll {
   overflow-y: auto;
 }
+
 .page-button {
   display: inline-block;
   background-color: gray;
@@ -223,13 +238,16 @@ li {
   cursor: pointer;
   margin: 5px;
 }
+
 .page-button:active {
   background-color: yellow;
 }
+
 .button-placement {
   display: flex;
   text-align: center;
-} 
+}
+
 .page-number {
   margin-top: 12px;
   margin: 12px 10px 0px 10px;

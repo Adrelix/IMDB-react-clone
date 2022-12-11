@@ -11,16 +11,14 @@ function Genre(props){
     React.useEffect( componentWasCreatedACB, [] ); 
 
     if (!promiseState.promise) {
-        resolvePromise(getMovieByGenre(props.model.currentGenre, props.model.currentMediaType), promiseState, notifyACB);
+        resolvePromise(getMovieByGenre(props.model.currentGenre, props.model.currentMediaType, props.model.pageNumber), promiseState, notifyACB);
     }
     function observerACB(){
         resolvePromise(getMovieByGenre(props.model.currentGenre, props.model.currentMediaType, props.model.pageNumber), promiseState, notifyACB);
     }
     function changePage(change){
         props.model.changePageNumber(change);
-        //resolvePromise(getMovieByGenre(genre.currentGenre, genre.currentMedia, currentPage), promiseState, notifyACB);
     }
-    
     function componentWasCreatedACB(){ 
         console.log("genrePresenter created!");
         props.model.addObserver(observerACB);

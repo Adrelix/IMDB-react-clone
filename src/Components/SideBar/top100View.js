@@ -1,4 +1,5 @@
-function GenreView(props){
+function Top100View(props){
+    console.log(props);
     function searchResultCB(item){
         function searchResultsClickACB(){
           console.log("image clicked");
@@ -16,13 +17,13 @@ function GenreView(props){
     }
     return (
       <div class="genre-results">
-        {props.genreResults.map(searchResultCB)}
+        {props.top100Results.map(searchResultCB)}
         <div>
           <button class="page-button" onClick={() => decreaseAmountCB()} disabled={props.page === 1}>
             prev
           </button>
           <span class="page-number">{props.page}</span>
-          <button class="page-button" onClick={() => increaseAmountCB()}>
+          <button class="page-button" onClick={() => increaseAmountCB()} disabled={props.page === 5}>
             next
           </button>
         </div>
@@ -30,4 +31,4 @@ function GenreView(props){
     );
 }
 
-export default GenreView;
+export default Top100View;
