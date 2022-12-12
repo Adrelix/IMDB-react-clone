@@ -11,6 +11,17 @@ function Sidebar(props){
   }
     return (
       <SidebarView
+       onOpenSignUpForm = {()=>{
+        if(props.pageModel.signUpStatus) props.pageModel.setSignUpStatus(false)
+        else props.pageModel.setSignUpStatus(true)
+       }}
+       onOpenLoginForm = {()=>{
+        if(props.pageModel.loginStatus) props.pageModel.setLoginStatus(false)
+        else props.pageModel.setLoginStatus(true)
+       }}
+
+
+
         movieGenres={[
           { id: 28, name: "Action" },
           { id: 12, name: "Adventure" },
