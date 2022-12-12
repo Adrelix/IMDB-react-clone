@@ -106,6 +106,7 @@
   background-color: black;
   color: white;
   opacity: 0.9;
+  z-index: 3;
 }
 
 .sidebar-content {
@@ -148,7 +149,7 @@ li {
 
 .searchbar {
   position: fixed;
-  z-index: 3;
+  z-index: 10;
   width: 100vw;
   overflow: hidden;
   background-color: gray;
@@ -251,4 +252,80 @@ li {
 .page-number {
   margin-top: 12px;
   margin: 12px 10px 0px 10px;
+}
+
+
+.open-from-button{
+  margin-top: 0;
+  padding-top: 0;
+}
+#profile-title{
+  margin-bottom: 0;
+}
+#login-buttons-div{
+  display: flex;
+  align-items: left;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  width: 20vw;
+  margin-left: 250px;
+  margin-top: 103px;
+  border: 3px solid #767676;
+  background-color: yellow;
+  z-index: 1;
+}
+
+/* Add styles to the form container */
+.form-container {
+  padding: 10px;
+  
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.loginFormPresenter{
+  width: wrap;
+  position: fixed; /* Sit on top of the page content */
+  height: wrap;
+  z-index: 1;
+
 }
