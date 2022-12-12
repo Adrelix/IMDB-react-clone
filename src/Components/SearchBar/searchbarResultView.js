@@ -6,11 +6,12 @@ function SearchResultsView(props){
           function searchResultsClickACB(){
             //window.location.hash ="#details"
             props.customClickEvent(searchResult)
+            
             console.log("image clicked");
           }
-          return <span key={searchResult.id} class= "searchResult" onClick={searchResultsClickACB}>
-          <img class ="image"src={"https://image.tmdb.org/t/p/w500/"+searchResult.poster_path}  alt="img" height="150"/>
-          <span>Rating: {searchResult.vote_average}</span><div >{searchResult.title}</div></span>
+          return <span key={searchResult.id} class= "result" onClick={searchResultsClickACB}>
+          <img class="image"src={"https://image.tmdb.org/t/p/w500/"+searchResult.poster_path}  alt="img" height="150px"/>
+          <div class="searchText">{searchResult.title}: Rating: {searchResult.vote_average}</div><div class ="searchText"><span class="test">Release date: {searchResult.release_date}</span></div></span>
       
         }
         return props.searchResults.map(searchResultCB)
