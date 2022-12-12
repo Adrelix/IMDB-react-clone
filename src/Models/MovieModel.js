@@ -1,7 +1,7 @@
 import { getMovieDetails, getMovieByGenre } from "../Utilities/dataSource";
 import resolvePromise from "../Utilities/resolvePromise";
 class MovieModel{
-    constructor(movieArray =[], currentMovie, currentGenre, currentMediaType, pageNumber){
+    constructor(pageNumber, movieArray =[], currentMovie, currentGenre, currentMediaType){
         this.observers = [];
         this.movies = movieArray;
         this.currentGenre = currentGenre;
