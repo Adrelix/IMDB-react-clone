@@ -32,29 +32,47 @@ function SidebarView(props){
         }  
     }
 
+
+    function getProfileList(){
+      if(!props.user) return(
+      <div id="login-buttons-div">
+        <button class="open-from-button" onClick={openLoginForm}>Login</button>
+        <button class="open-from-button" onClick={openSignUpForm}>Sign up</button>
+      </div>) 
+      else return( 
+                <div>
+                  <text  id="login-buttons-div">User: {props.user ? props.user.email : ""}</text>
+                  <br/>
+                  <div id="login-buttons-div">
+                    <button class="open-from-button" onClick={logOut}>Log out</button> 
+                  </div>
+                  <br/>
+                  <ul>
+                    <li>My Watchlist</li>
+                    <li>My Ratings</li>
+                    <li>My Lists</li>
+                  </ul>
+                </div>);
+      
+    }
+
     function openLoginForm(){
       props.onOpenLoginForm();
     }
     function openSignUpForm(){
       props.onOpenSignUpForm();
     }
-
+    function logOut(){
+      props.logOut()
+    }
 
     return (
       <div class="sidebar">
         <div class="sidebar-content">
         <h2 class="title" id="profile-title">Profile</h2>
-        <div id="login-buttons-div">
-          <button class="open-from-button" onClick={openLoginForm}>Login</button>
-        <button class="open-from-button" onClick={openSignUpForm}>Sign up</button>
-        </div>
-        
-        <br/>
-          <ul>
-            <li>My Watchlist</li>
-            <li>My Ratings</li>
-            <li>My Lists</li>
-          </ul>
+        {getProfileList()}
+      
+       
           <h2 class="title">Movies</h2>
           <ul>
             <li onClick={() => goToTop100("movie")}>Top 100 Movies</li>

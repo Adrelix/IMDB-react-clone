@@ -1,6 +1,8 @@
 import LoginFormView from './loginFormView'
 import React from "react";
 import SignUpFormView from './signUpFormView';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../Utilities/firebaseConfig';
 
 export default
 function LoginSignUpFormPresenter(props){
@@ -26,14 +28,28 @@ function LoginSignUpFormPresenter(props){
       props.pageModel.setSignUpStatus(false)
     }
 
+    async function onSignUp(email, password){
+      try {
+        const user = await createUserWithEmailAndPassword(auth, email, password)
+        props.pageModel.setSignUpStatus(false)
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    async function onLogin(email, password){
+      try {
+        const user = await signInWithEmailAndPassword(auth, email, password)
+        props.pageModel.setLoginStatus(false)
+      } catch (error) {
+        console.log(error.message)
+      }  
+    }
     if(loginStatus)
     return (<div class="loginFormPresenter">
-      {signUpStatus.toString()}
-        <LoginFormView onClose={onClose}/>
+        <LoginFormView onClose={onClose} onSubmit={onLogin}/>
     </div>);
 
     if(signUpStatus)
     return (<div class="loginFormPresenter">
-      {signUpStatus.toString()}
-        <SignUpFormView onClose={onClose}/></div>);
+        <SignUpFormView onClose={onClose} onSubmit={onSignUp}/></div>);
 }

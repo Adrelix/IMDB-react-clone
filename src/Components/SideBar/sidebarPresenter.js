@@ -1,16 +1,34 @@
 import SidebarView from "./sidebarView";
 import React from "react";
+import { auth } from '../../Utilities/firebaseConfig';
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 export default
 function Sidebar(props){
+
+  const [user, setUser] = React.useState({})
+
+  onAuthStateChanged(auth, (currentUser) =>{
+    setUser(currentUser)
+  })
+
   function setCurrentGenre(genreID, mediaType){
     props.model.setCurrentGenre(genreID, mediaType);
   }
   function setCurrentType(mediaType){
     props.model.setCurrentType(mediaType);
   }
+
+  async function logOut(){
+    await signOut(auth)
+  }
+
     return (
+    <div>
       <SidebarView
+      user = {user}
+      logOut ={() => logOut()}
+
        onOpenSignUpForm = {()=>{
         if(props.pageModel.signUpStatus) props.pageModel.setSignUpStatus(false)
         else props.pageModel.setSignUpStatus(true)
@@ -63,6 +81,6 @@ function Sidebar(props){
         ]}
         onSettingGenre={setCurrentGenre}
         onSettingType={setCurrentType}
-      />
+      /></div>
     );
 }
