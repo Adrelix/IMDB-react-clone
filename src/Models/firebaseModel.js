@@ -5,7 +5,6 @@
 // TODO
 
 // this is needed so that unit tests can inject a mock firebase
-import {searchDishes,getDishDetails}from "/src/dishSource.js";
 import firebaseConfig from "../Utilities/firebaseConfig";
 import MovieModel from "./MovieModel";
 firebase.initializeApp(firebaseConfig);
