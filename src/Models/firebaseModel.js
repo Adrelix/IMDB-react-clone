@@ -10,7 +10,6 @@ import MovieModel from "./MovieModel";
 firebase.initializeApp(firebaseConfig);
 //  REF is the “root” Firebase path. NN is your TW2_TW3 group number
 const REF = "MovieModel37";
-firebase.database().ref(REF+"/test").set("dummy");
 
 
 function observerRecap(model) {
@@ -22,13 +21,14 @@ function observerRecap(model) {
 
 }
 
-/*function makeBigPromiseACB(firebaseData) {
-  function createModelACB(dishArray){
+function makeBigPromiseACB(firebaseData) {
+  function createModelACB(){
     const pageNumber = firebaseData.val().pageNumber;
-    return new DinnerModel(pageNumber);
+    return new MovieModel(pageNumber);
   }
   function makeDishPromiseCB(dishId) {
-    return getDishDetails(dishId);
+    debugger
+    //return getDishDetails(dishId);
   }
   if(firebaseData.val()){
     if(firebaseData.val().yourDishesPath){
@@ -38,9 +38,9 @@ function observerRecap(model) {
       return Promise.all([]).then(createModelACB);
     }
   }else {
-    return new DinnerModel(2, []);
+    return new MovieModel(1, []);
   }
-}*/
+}
 
 function firebaseModelPromise() {
   return firebase.database().ref(REF).once("value").then(makeBigPromiseACB);}
@@ -52,7 +52,7 @@ function updateFirebaseFromModel(model) {
 
     function observerACB(payload) { // Seters
       if(payload.pageNumber) {
-        firebase.database().ref(REF+"/numberOfGuests").set(model.pagenumber);
+        firebase.database().ref(REF+"/pageNumber").set(model.pagenumber);
       }
     }
     model.addObserver(observerACB)
@@ -62,7 +62,7 @@ function updateFirebaseFromModel(model) {
 function updateModelFromFirebase(model) {
     //TODO
 
-    firebase.database().ref(REF+"/pageNumber").on("value",     // Set listener to numberOfGuests path
+    firebase.database().ref(REF+"/pageNumber").on("value",
     function pageChangedInFirebaseACB(firebaseData){model.changePageNumber(firebaseData.val());}
     );
 
